@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.layout {
+  min-height: 100vh;
+  background: $dark-bg;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 0;
+  padding-top: 70px;
+  
+  @include mobile {
+    padding-top: 60px;
+  }
+}
+
+.scrollTopButton {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  width: 50px;
+  height: 50px;
+  border-radius: $border-radius-full;
+  background: $gradient-primary;
+  color: $text-primary;
+  border: none;
+  cursor: pointer;
+  box-shadow: $shadow-purple-lg;
+  z-index: $z-fixed;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-purple-lg, 0 0 30px rgba($primary-purple, 0.5);
+  }
+  
+  @include mobile {
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 45px;
+    height: 45px;
+  }
+} 

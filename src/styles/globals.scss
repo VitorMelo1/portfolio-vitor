@@ -1,0 +1,458 @@
+// ===== Importações =====
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+// ===== Fontes Externas =====
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+// ===== Estilos Globais Adicionais =====
+
+// ===== Scroll Suave =====
+html, body, #root {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: $dark-bg;
+  overflow-x: hidden;
+}
+
+// ===== Seleção de Texto =====
+::selection {
+  background: rgba($primary-purple, 0.3);
+  color: $text-primary;
+}
+
+::-moz-selection {
+  background: rgba($primary-purple, 0.3);
+  color: $text-primary;
+}
+
+// ===== Scrollbar Personalizada =====
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: $border-radius-full;
+  transition: background $transition-fast;
+  
+  &:hover {
+    background: $primary-purple;
+  }
+}
+
+// ===== Foco Visível =====
+:focus-visible {
+  outline: 2px solid $primary-purple;
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// ===== App Container =====
+.app {
+  min-height: 100vh;
+  background: $dark-bg;
+  overflow-x: hidden;
+}
+
+// ===== Main Content =====
+main {
+  padding-top: 70px;
+  
+  @include mobile {
+    padding-top: 60px;
+  }
+}
+
+// ===== Botão Voltar ao Topo =====
+.scroll-top-button {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  width: 50px;
+  height: 50px;
+  border-radius: $border-radius-full;
+  background: $gradient-primary;
+  color: $text-primary;
+  border: none;
+  cursor: pointer;
+  box-shadow: $shadow-purple-lg;
+  z-index: $z-fixed;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-purple-lg, 0 0 30px rgba($primary-purple, 0.5);
+  }
+  
+  @include mobile {
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+// ===== Classes Utilitárias Globais =====
+
+// ===== Layout =====
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+// ===== Display =====
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+// ===== Z-Index =====
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+// ===== Overflow =====
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+// ===== Cores de Texto =====
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+.text-accent {
+  color: $text-accent;
+}
+
+// ===== Cores de Fundo =====
+.bg-primary {
+  background-color: $dark-bg;
+}
+
+.bg-secondary {
+  background-color: $dark-bg-secondary;
+}
+
+.bg-tertiary {
+  background-color: $dark-bg-tertiary;
+}
+
+.bg-card {
+  background-color: $dark-bg-card;
+}
+
+.bg-gradient {
+  background: $gradient-primary;
+}
+
+.bg-gradient-dark {
+  background: $gradient-dark;
+}
+
+// ===== Bordas =====
+.border {
+  border: 1px solid $border-color;
+}
+
+.border-t {
+  border-top: 1px solid $border-color;
+}
+
+.border-b {
+  border-bottom: 1px solid $border-color;
+}
+
+.border-l {
+  border-left: 1px solid $border-color;
+}
+
+.border-r {
+  border-right: 1px solid $border-color;
+}
+
+.border-purple {
+  border-color: $primary-purple;
+}
+
+.rounded {
+  border-radius: $border-radius-md;
+}
+
+.rounded-lg {
+  border-radius: $border-radius-lg;
+}
+
+.rounded-xl {
+  border-radius: $border-radius-xl;
+}
+
+.rounded-full {
+  border-radius: $border-radius-full;
+}
+
+// ===== Sombras =====
+.shadow {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+.shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+.shadow-purple {
+  box-shadow: $shadow-purple;
+}
+
+.shadow-purple-lg {
+  box-shadow: $shadow-purple-lg;
+}
+
+// ===== Espaçamentos =====
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-xs; }
+.p-2 { padding: $spacing-sm; }
+.p-3 { padding: $spacing-md; }
+.p-4 { padding: $spacing-lg; }
+.p-5 { padding: $spacing-xl; }
+.p-6 { padding: $spacing-2xl; }
+
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: $spacing-xs; padding-right: $spacing-xs; }
+.px-2 { padding-left: $spacing-sm; padding-right: $spacing-sm; }
+.px-3 { padding-left: $spacing-md; padding-right: $spacing-md; }
+.px-4 { padding-left: $spacing-lg; padding-right: $spacing-lg; }
+.px-5 { padding-left: $spacing-xl; padding-right: $spacing-xl; }
+.px-6 { padding-left: $spacing-2xl; padding-right: $spacing-2xl; }
+
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: $spacing-xs; padding-bottom: $spacing-xs; }
+.py-2 { padding-top: $spacing-sm; padding-bottom: $spacing-sm; }
+.py-3 { padding-top: $spacing-md; padding-bottom: $spacing-md; }
+.py-4 { padding-top: $spacing-lg; padding-bottom: $spacing-lg; }
+.py-5 { padding-top: $spacing-xl; padding-bottom: $spacing-xl; }
+.py-6 { padding-top: $spacing-2xl; padding-bottom: $spacing-2xl; }
+
+.m-0 { margin: 0; }
+.m-1 { margin: $spacing-xs; }
+.m-2 { margin: $spacing-sm; }
+.m-3 { margin: $spacing-md; }
+.m-4 { margin: $spacing-lg; }
+.m-5 { margin: $spacing-xl; }
+.m-6 { margin: $spacing-2xl; }
+
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: $spacing-xs; margin-right: $spacing-xs; }
+.mx-2 { margin-left: $spacing-sm; margin-right: $spacing-sm; }
+.mx-3 { margin-left: $spacing-md; margin-right: $spacing-md; }
+.mx-4 { margin-left: $spacing-lg; margin-right: $spacing-lg; }
+.mx-5 { margin-left: $spacing-xl; margin-right: $spacing-xl; }
+.mx-6 { margin-left: $spacing-2xl; margin-right: $spacing-2xl; }
+
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: $spacing-xs; margin-bottom: $spacing-xs; }
+.my-2 { margin-top: $spacing-sm; margin-bottom: $spacing-sm; }
+.my-3 { margin-top: $spacing-md; margin-bottom: $spacing-md; }
+.my-4 { margin-top: $spacing-lg; margin-bottom: $spacing-lg; }
+.my-5 { margin-top: $spacing-xl; margin-bottom: $spacing-xl; }
+.my-6 { margin-top: $spacing-2xl; margin-bottom: $spacing-2xl; }
+
+// ===== Texto =====
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+.text-4xl { font-size: $font-size-4xl; }
+.text-5xl { font-size: $font-size-5xl; }
+.text-6xl { font-size: $font-size-6xl; }
+
+.font-light { font-weight: $font-weight-light; }
+.font-normal { font-weight: $font-weight-normal; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-extrabold { font-weight: $font-weight-extrabold; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.leading-tight { line-height: $line-height-tight; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-relaxed { line-height: $line-height-relaxed; }
+
+// ===== Transições =====
+.transition {
+  transition: all $transition-normal;
+}
+
+.transition-fast {
+  transition: all $transition-fast;
+}
+
+.transition-slow {
+  transition: all $transition-slow;
+}
+
+// ===== Efeitos =====
+.backdrop-blur {
+  @include backdrop-blur;
+}
+
+.glass-effect {
+  @include glass-effect;
+}
+
+// ===== Responsividade =====
+@include mobile {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+@include tablet-up {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@include desktop-up {
+  .tablet-only {
+    display: none;
+  }
+}
+
+// ===== Animações de Scroll =====
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ===== Efeitos de Parallax =====
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+// ===== Utilitários de Acessibilidade =====
+.sr-only {
+  @include sr-only;
+}
+
+// ===== Efeitos de Hover =====
+.hover-lift {
+  @include hover-lift;
+}
+
+.hover-scale {
+  @include hover-scale;
+}
+
+.hover-glow {
+  @include hover-glow;
+}
+
+// ===== Gradientes de Texto =====
+.text-gradient {
+  @include gradient-text;
+}
+
+// ===== Efeitos de Brilho =====
+.glow-effect {
+  @include glow-effect;
+}
+
+.neon-glow {
+  @include neon-glow;
+} 

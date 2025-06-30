@@ -1,0 +1,219 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  background: $dark-bg-secondary;
+  border-top: 1px solid $border-color;
+  padding: $spacing-4xl 0 $spacing-2xl;
+  margin-top: $spacing-4xl;
+  
+  @include mobile {
+    padding: $spacing-3xl 0 $spacing-xl;
+    margin-top: $spacing-3xl;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.content {
+  @include flex-between;
+  margin-bottom: $spacing-3xl;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-2xl;
+    text-align: center;
+  }
+  
+  @include tablet {
+    gap: $spacing-xl;
+  }
+}
+
+.section {
+  flex: 1;
+  
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.brand {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.brandName {
+  @include heading-3;
+  @include flex-center;
+  gap: $spacing-xs;
+  
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.brandText {
+  color: $text-primary;
+}
+
+.brandAccent {
+  @include gradient-text;
+}
+
+.brandDescription {
+  @include body-text;
+  color: $text-secondary;
+  max-width: 300px;
+  
+  @include mobile {
+    max-width: none;
+  }
+}
+
+.sectionTitle {
+  @include heading-3;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+  
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.quickLinks {
+  @include flex-column;
+  gap: $spacing-sm;
+  
+  @include mobile {
+    align-items: center;
+  }
+}
+
+.quickLink {
+  @include body-text;
+  color: $text-secondary;
+  transition: all $transition-normal;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $gradient-primary;
+    transition: width $transition-normal;
+  }
+  
+  &:hover {
+    color: $primary-purple;
+    
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.socialLinks {
+  @include flex-center;
+  gap: $spacing-md;
+  
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.socialLink {
+  @include flex-center;
+  width: 45px;
+  height: 45px;
+  border-radius: $border-radius-full;
+  background: rgba($primary-purple, 0.1);
+  color: $text-secondary;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    color: $text-primary;
+    box-shadow: $shadow-purple;
+    transform: translateY(-2px);
+  }
+  
+  @include mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.bottom {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.divider {
+  height: 1px;
+  background: $gradient-primary;
+  opacity: 0.3;
+}
+
+.bottomContent {
+  @include flex-between;
+  align-items: center;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-md;
+    text-align: center;
+  }
+}
+
+.copyright {
+  @include caption-text;
+  color: $text-muted;
+}
+
+.madeWith {
+  @include caption-text;
+  color: $text-muted;
+  @include flex-center;
+  gap: $spacing-xs;
+}
+
+.heart {
+  color: #ff6b6b;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.srOnly {
+  @include sr-only;
+}
+
+// ===== Animações =====
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+// ===== Responsividade Adicional =====
+@include tablet {
+  .content {
+    gap: $spacing-xl;
+  }
+  
+  .socialLinks {
+    gap: $spacing-sm;
+  }
+  
+  .socialLink {
+    width: 40px;
+    height: 40px;
+  }
+} 

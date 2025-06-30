@@ -1,0 +1,247 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background: rgba($dark-bg, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($border-color, 0.3);
+  transition: all $transition-normal;
+  
+  &.scrolled {
+    background: rgba($dark-bg, 0.95);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.container {
+  @include container;
+  @include flex-between;
+  padding: $spacing-md $container-padding;
+  height: 70px;
+  
+  @include mobile {
+    padding: $spacing-sm;
+    height: 60px;
+  }
+}
+
+// ===== Logo =====
+.logo {
+  @include flex-center;
+  cursor: pointer;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  
+  @include mobile {
+    font-size: $font-size-lg;
+  }
+}
+
+.logoText {
+  color: $text-primary;
+}
+
+.logoAccent {
+  @include gradient-text;
+  margin-left: $spacing-xs;
+}
+
+// ===== Navegação =====
+.nav {
+  @include mobile {
+    display: none;
+  }
+}
+
+.navList {
+  @include flex-center;
+  gap: $spacing-lg;
+  
+  @include tablet {
+    gap: $spacing-md;
+  }
+}
+
+.navItem {
+  list-style: none;
+}
+
+.navLink {
+  @include button-base;
+  background: transparent;
+  color: $text-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: $gradient-primary;
+    transition: all $transition-normal;
+    transform: translateX(-50%);
+  }
+  
+  &:hover {
+    color: $text-primary;
+    
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// ===== Links Sociais =====
+.socialLinks {
+  @include flex-center;
+  gap: $spacing-sm;
+  
+  @include mobile {
+    display: none;
+  }
+}
+
+.socialLink {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-full;
+  background: rgba($primary-purple, 0.1);
+  color: $text-secondary;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    color: $text-primary;
+    box-shadow: $shadow-purple;
+  }
+  
+  @include tablet {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// ===== Botão Menu Mobile =====
+.mobileMenuButton {
+  display: none;
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-md;
+  background: rgba($primary-purple, 0.1);
+  color: $text-primary;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    display: flex;
+  }
+}
+
+// ===== Menu Mobile =====
+.mobileMenu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  background: $dark-bg;
+  border-left: 1px solid $border-color;
+  z-index: $z-modal;
+  
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.mobileMenuContent {
+  @include flex-column;
+  height: 100%;
+  padding: $spacing-lg;
+}
+
+.mobileNav {
+  flex: 1;
+}
+
+.mobileNavList {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.mobileNavItem {
+  list-style: none;
+}
+
+.mobileNavLink {
+  @include button-base;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: $text-secondary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  padding: $spacing-md;
+  border-radius: $border-radius-lg;
+  border: 1px solid transparent;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: rgba($primary-purple, 0.1);
+    color: $primary-purple;
+    border-color: $primary-purple;
+  }
+}
+
+.mobileSocialLinks {
+  @include flex-column;
+  gap: $spacing-sm;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border-color;
+}
+
+.mobileSocialLink {
+  @include flex-center;
+  justify-content: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-radius: $border-radius-lg;
+  background: rgba($primary-purple, 0.1);
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    color: $text-primary;
+    box-shadow: $shadow-purple;
+  }
+  
+  span {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// ===== Utilitários =====
+.srOnly {
+  @include sr-only;
+} 

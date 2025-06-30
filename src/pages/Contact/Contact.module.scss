@@ -1,0 +1,382 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact {
+  min-height: 100vh;
+  background: $dark-bg;
+  padding: $spacing-4xl 0;
+  display: flex;
+  flex-direction: column;
+  
+  @include mobile {
+    padding: $spacing-3xl 0;
+  }
+}
+
+.container {
+  @include container;
+  min-height: 80vh;
+}
+
+// ===== Hero Section =====
+.hero {
+  text-align: center;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.heroContent {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.title {
+  @include heading-1;
+  @include gradient-text;
+  
+  @include mobile {
+    @include heading-2;
+  }
+}
+
+.accent {
+  color: $primary-purple;
+}
+
+.subtitle {
+  @include heading-3;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @include mobile {
+    @include body-text;
+  }
+}
+
+// ===== Content Layout =====
+.content {
+  @include flex-column;
+  gap: $spacing-5xl;
+  
+  @include mobile {
+    gap: $spacing-4xl;
+  }
+}
+
+// ===== Contact Info Section =====
+.contactInfo {
+  margin-bottom: $spacing-4xl;
+}
+
+.infoContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+}
+
+.sectionTitle {
+  @include heading-2;
+  color: $text-primary;
+  
+  @include mobile {
+    @include heading-3;
+  }
+}
+
+.sectionSubtitle {
+  @include body-text;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.infoCard {
+  @include flex-center;
+  gap: $spacing-lg;
+  padding: $spacing-2xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    @include flex-column;
+    text-align: center;
+    gap: $spacing-md;
+  }
+}
+
+.infoIcon {
+  color: $primary-purple;
+  flex-shrink: 0;
+}
+
+.infoContent {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+}
+
+.infoLabel {
+  @include heading-4;
+  color: $text-primary;
+  margin: 0;
+}
+
+.infoValue {
+  @include body-text;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: color $transition-normal;
+  
+  &:hover {
+    color: $primary-purple;
+  }
+}
+
+// ===== Social Links Section =====
+.socialLinks {
+  margin-bottom: $spacing-4xl;
+}
+
+.socialContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+  
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.socialCard {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  text-decoration: none;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: var(--social-color);
+    box-shadow: 0 0 20px rgba(var(--social-color), 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+.socialIcon {
+  color: var(--social-color);
+}
+
+.socialLabel {
+  @include body-text;
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+// ===== Contact Form Section =====
+.contactForm {
+  margin-bottom: $spacing-4xl;
+}
+
+.formContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-xl;
+  text-align: left;
+}
+
+.formGroup {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.label {
+  @include body-text;
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.input,
+.textarea {
+  padding: $spacing-md $spacing-lg;
+  background: $dark-bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  color: $text-primary;
+  @include body-text;
+  transition: all $transition-normal;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-purple;
+    box-shadow: 0 0 0 2px rgba($primary-purple, 0.2);
+  }
+  
+  &:hover {
+    border-color: rgba($primary-purple, 0.5);
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formActions {
+  @include flex-center;
+  margin-top: $spacing-lg;
+}
+
+.submitButton {
+  min-width: 200px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: $border-radius-full;
+  animation: spin 1s linear infinite;
+  margin-right: $spacing-sm;
+}
+
+// ===== Status Messages =====
+.statusMessage {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  @include body-text;
+  
+  &.error {
+    background: rgba(#ef4444, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(#ef4444, 0.2);
+  }
+  
+  &:not(.error) {
+    background: rgba(#10b981, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(#10b981, 0.2);
+  }
+  
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ===== Responsividade Adicional =====
+@include tablet {
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .infoCard {
+    @include flex-column;
+    text-align: center;
+    gap: $spacing-md;
+  }
+}
+
+// ===== Animações =====
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.socialCard:hover .socialIcon {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+// ===== Focus States =====
+.input:focus,
+.textarea:focus {
+  transform: translateY(-1px);
+}
+
+// ===== Loading States =====
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+// ===== Custom Scrollbar for Textarea =====
+.textarea {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $dark-bg-secondary;
+    border-radius: $border-radius-sm;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $primary-purple;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background: $secondary-purple;
+    }
+  }
+} 

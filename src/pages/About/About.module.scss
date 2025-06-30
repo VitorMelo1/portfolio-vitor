@@ -1,0 +1,394 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.about {
+  min-height: 100vh;
+  background: $dark-bg;
+  padding: $spacing-4xl 0;
+  display: flex;
+  flex-direction: column;
+  
+  @include mobile {
+    padding: $spacing-3xl 0;
+  }
+}
+
+.container {
+  @include container;
+  min-height: 80vh;
+}
+
+// ===== Hero Section =====
+.hero {
+  text-align: center;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.heroContent {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.title {
+  @include heading-1;
+  @include gradient-text;
+  
+  @include mobile {
+    @include heading-2;
+  }
+}
+
+.accent {
+  color: $primary-purple;
+}
+
+.subtitle {
+  @include heading-3;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @include mobile {
+    @include body-text;
+  }
+}
+
+// ===== Bio Section =====
+.bio {
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.bioContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+}
+
+.bioHeader {
+  @include flex-column;
+  gap: $spacing-xl;
+  text-align: center;
+}
+
+.sectionTitle {
+  @include heading-2;
+  color: $text-primary;
+  
+  @include mobile {
+    @include heading-3;
+  }
+}
+
+.bioInfo {
+  @include flex-center;
+  gap: $spacing-xl;
+  flex-wrap: wrap;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+}
+
+.infoItem {
+  @include flex-center;
+  gap: $spacing-sm;
+  color: $text-secondary;
+  @include body-text;
+  
+  svg {
+    color: $primary-purple;
+  }
+}
+
+.bioText {
+  @include flex-column;
+  gap: $spacing-lg;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  p {
+    @include body-text;
+    color: $text-secondary;
+    line-height: 1.8;
+    text-align: justify;
+    
+    @include mobile {
+      text-align: left;
+    }
+  }
+}
+
+// ===== Stats Section =====
+.stats {
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.statCard {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-2xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  text-align: center;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
+}
+
+.statIcon {
+  color: $primary-purple;
+  margin-bottom: $spacing-sm;
+}
+
+.statValue {
+  @include heading-2;
+  @include gradient-text;
+  
+  @include mobile {
+    @include heading-3;
+  }
+}
+
+.statLabel {
+  @include body-text;
+  color: $text-secondary;
+}
+
+// ===== Tech Stack Section =====
+.techStack {
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.techContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  @include body-text;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.techCard {
+  @include flex-center;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
+}
+
+.techIcon {
+  font-size: 2rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.techInfo {
+  flex: 1;
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.techName {
+  @include heading-4;
+  color: $text-primary;
+  margin: 0;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba($primary-purple, 0.2);
+  border-radius: $border-radius-full;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $gradient-primary;
+  border-radius: $border-radius-full;
+}
+
+.techLevel {
+  @include caption-text;
+  color: $text-secondary;
+  text-align: right;
+}
+
+// ===== Timeline Section =====
+.timeline {
+  margin-bottom: $spacing-4xl;
+}
+
+.timelineContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+}
+
+.timelineList {
+  @include flex-column;
+  gap: $spacing-2xl;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $gradient-primary;
+    opacity: 0.3;
+    
+    @include mobile {
+      left: 20px;
+    }
+  }
+}
+
+.timelineItem {
+  @include flex-center;
+  gap: $spacing-xl;
+  position: relative;
+  
+  @include mobile {
+    gap: $spacing-lg;
+    align-items: flex-start;
+  }
+}
+
+.timelineIcon {
+  @include flex-center;
+  width: 60px;
+  height: 60px;
+  background: $primary-purple;
+  border-radius: $border-radius-full;
+  color: $text-primary;
+  z-index: 1;
+  flex-shrink: 0;
+  
+  @include mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.timelineContent {
+  flex: 1;
+  text-align: left;
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.timelineYear {
+  @include caption-text;
+  color: $primary-purple;
+  font-weight: $font-weight-bold;
+}
+
+.timelineTitle {
+  @include heading-4;
+  color: $text-primary;
+  margin: 0;
+}
+
+.timelineCompany {
+  @include body-text;
+  color: $text-secondary;
+  font-style: italic;
+}
+
+.timelineDescription {
+  @include body-text;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ===== Responsividade Adicional =====
+@include tablet {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bioInfo {
+    gap: $spacing-lg;
+  }
+}
+
+// ===== Animações =====
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.statCard:hover .statIcon {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.statCard, .techCard, .timelineItem {
+  min-height: unset;
+  overflow: unset;
+} 

@@ -1,0 +1,407 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.home {
+  min-height: 100vh;
+  background: $dark-bg;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// ===== Background =====
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.particles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: $primary-purple;
+  border-radius: $border-radius-full;
+  opacity: 0.6;
+  
+  &:nth-child(odd) {
+    background: $secondary-purple;
+  }
+  
+  &:nth-child(3n) {
+    background: rgba($primary-purple, 0.4);
+  }
+}
+
+// ===== Container =====
+.container {
+  @include container;
+  padding: $spacing-4xl 0;
+  min-height: 80vh;
+}
+
+// ===== Hero Section =====
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.heroContent {
+  @include flex-column;
+  gap: $spacing-2xl;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.greeting {
+  @include flex-center;
+  gap: $spacing-sm;
+  @include body-text;
+  color: $text-secondary;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+}
+
+.wave {
+  font-size: 1.5rem;
+  animation: wave 2s ease-in-out infinite;
+}
+
+.greetingText {
+  @include body-text;
+  color: $text-secondary;
+}
+
+.title {
+  @include heading-1;
+  @include gradient-text;
+  line-height: 1.1;
+  
+  @include mobile {
+    @include heading-2;
+  }
+}
+
+.name {
+  color: $text-primary;
+}
+
+.surname {
+  @include gradient-text;
+}
+
+.typingContainer {
+  @include flex-center;
+  min-height: 2.5rem;
+  
+  @include mobile {
+    min-height: 2rem;
+  }
+}
+
+.typingText {
+  @include heading-3;
+  color: $primary-purple;
+  font-weight: $font-weight-semibold;
+  
+  @include mobile {
+    @include heading-4;
+  }
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: $primary-purple;
+}
+
+.description {
+  @include body-text;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.ctaButtons {
+  @include flex-center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+}
+
+.socialLinks {
+  @include flex-center;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+}
+
+.socialLink {
+  @include flex-center;
+  width: 50px;
+  height: 50px;
+  border-radius: $border-radius-full;
+  background: rgba($primary-purple, 0.1);
+  color: $text-secondary;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    color: $text-primary;
+    transform: translateY(-2px);
+    box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.srOnly {
+  @include sr-only;
+}
+
+// ===== Stats Section =====
+.stats {
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+}
+
+.statCard {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-2xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  text-align: center;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
+}
+
+.statValue {
+  @include heading-2;
+  @include gradient-text;
+  
+  @include mobile {
+    @include heading-3;
+  }
+}
+
+.statLabel {
+  @include body-text;
+  color: $text-secondary;
+  text-align: center;
+}
+
+// ===== Quick Actions Section =====
+.quickActions {
+  margin-bottom: $spacing-4xl;
+}
+
+.actionsContent {
+  @include flex-column;
+  gap: $spacing-3xl;
+  text-align: center;
+}
+
+.actionsTitle {
+  @include heading-2;
+  color: $text-primary;
+  
+  @include mobile {
+    @include heading-3;
+  }
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.actionCard {
+  text-decoration: none;
+  color: inherit;
+}
+
+.actionContent {
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-2xl;
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  transition: all $transition-normal;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-primary;
+    opacity: 0;
+    transition: opacity $transition-normal;
+    z-index: 0;
+  }
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple-lg;
+    
+    &::before {
+      opacity: 0.05;
+    }
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.actionContent h3 {
+  @include heading-4;
+  color: $text-primary;
+  margin: 0;
+}
+
+.actionContent p {
+  @include body-text;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.actionContent svg {
+  color: $primary-purple;
+  align-self: flex-end;
+  transition: transform $transition-normal;
+}
+
+.actionContent:hover svg {
+  transform: translateX(4px);
+}
+
+// ===== Responsividade Adicional =====
+@include tablet {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ctaButtons {
+    gap: $spacing-md;
+  }
+}
+
+// ===== Animações =====
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.heroContent {
+  animation: float 6s ease-in-out infinite;
+}
+
+// ===== Hover Effects =====
+.statCard:hover .statValue {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+} 

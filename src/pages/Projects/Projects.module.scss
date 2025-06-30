@@ -1,0 +1,359 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.projects {
+  min-height: 100vh;
+  background: $dark-bg;
+  padding: $spacing-4xl 0;
+  display: flex;
+  flex-direction: column;
+  
+  @include mobile {
+    padding: $spacing-3xl 0;
+  }
+}
+
+.container {
+  @include container;
+  min-height: 80vh;
+}
+
+// ===== Hero Section =====
+.hero {
+  text-align: center;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-4xl;
+  }
+}
+
+.heroContent {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.title {
+  @include heading-1;
+  @include gradient-text;
+  
+  @include mobile {
+    @include heading-2;
+  }
+}
+
+.accent {
+  color: $primary-purple;
+}
+
+.subtitle {
+  @include heading-3;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @include mobile {
+    @include body-text;
+  }
+}
+
+// ===== Filters Section =====
+.filters {
+  margin-bottom: $spacing-4xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-3xl;
+  }
+}
+
+.filtersContent {
+  @include flex-column;
+  gap: $spacing-xl;
+  text-align: center;
+}
+
+.filtersHeader {
+  @include flex-center;
+  gap: $spacing-sm;
+  color: $text-primary;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+}
+
+.filtersTitle {
+  @include heading-3;
+  margin: 0;
+  
+  @include mobile {
+    @include heading-4;
+  }
+}
+
+.filterButtons {
+  @include flex-center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  
+  @include mobile {
+    gap: $spacing-sm;
+  }
+}
+
+.filterButton {
+  min-width: 100px;
+  
+  @include mobile {
+    min-width: 80px;
+    font-size: 0.875rem;
+  }
+}
+
+// ===== Projects Grid =====
+.projectsGrid {
+  margin-bottom: $spacing-4xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-2xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+  }
+}
+
+.projectCard {
+  background: $dark-bg-secondary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color;
+  overflow: unset;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple-lg;
+  }
+}
+
+.projectImage {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, rgba($primary-purple, 0.1), rgba($secondary-purple, 0.1));
+  overflow: hidden;
+}
+
+.imagePlaceholder {
+  @include flex-center;
+  height: 100%;
+  color: $primary-purple;
+  opacity: 0.7;
+}
+
+.projectOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($dark-bg, 0.9);
+  @include flex-center;
+}
+
+.overlayContent {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.overlayButton {
+  min-width: 120px;
+}
+
+.projectContent {
+  padding: $spacing-xl;
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.projectHeader {
+  @include flex-between;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.projectTitle {
+  @include heading-4;
+  color: $text-primary;
+  margin: 0;
+  flex: 1;
+}
+
+.projectLinks {
+  @include flex-center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.projectLink {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-full;
+  background: rgba($primary-purple, 0.1);
+  color: $text-secondary;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    color: $text-primary;
+    transform: translateY(-2px);
+  }
+}
+
+.projectDescription {
+  @include body-text;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.projectTechnologies {
+  @include flex-center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.technology {
+  @include caption-text;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($primary-purple, 0.1);
+  color: $primary-purple;
+  border-radius: $border-radius-sm;
+  border: 1px solid rgba($primary-purple, 0.2);
+}
+
+.projectStats {
+  @include flex-between;
+  gap: $spacing-md;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+}
+
+.stat {
+  @include flex-center;
+  gap: $spacing-xs;
+  
+  @include mobile {
+    justify-content: space-between;
+  }
+}
+
+.statLabel {
+  @include caption-text;
+  color: $text-muted;
+}
+
+.statValue {
+  @include caption-text;
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+  
+  &.completed {
+    color: #10b981;
+  }
+  
+  &.in-progress {
+    color: #f59e0b;
+  }
+  
+  &.planned {
+    color: #6b7280;
+  }
+}
+
+// ===== Empty State =====
+.emptyState {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-lg;
+  text-align: center;
+  padding: $spacing-4xl 0;
+  color: $text-secondary;
+  
+  h3 {
+    @include heading-3;
+    color: $text-primary;
+    margin: 0;
+  }
+  
+  p {
+    @include body-text;
+    margin: 0;
+  }
+  
+  svg {
+    color: $primary-purple;
+    opacity: 0.5;
+  }
+}
+
+// ===== Responsividade Adicional =====
+@include tablet {
+  .filterButtons {
+    gap: $spacing-sm;
+  }
+  
+  .filterButton {
+    min-width: 90px;
+  }
+  
+  .projectHeader {
+    @include flex-column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+  
+  .projectLinks {
+    align-self: flex-end;
+  }
+}
+
+// ===== Animações =====
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.projectCard:hover .projectImage {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($primary-purple, 0.1),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+} 
