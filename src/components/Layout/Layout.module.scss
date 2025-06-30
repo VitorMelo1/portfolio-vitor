@@ -32,7 +32,9 @@
   box-shadow: $shadow-purple-lg;
   z-index: $z-fixed;
   transition: all $transition-normal;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center; 
   &:hover {
     transform: translateY(-2px);
     box-shadow: $shadow-purple-lg, 0 0 30px rgba($primary-purple, 0.5);

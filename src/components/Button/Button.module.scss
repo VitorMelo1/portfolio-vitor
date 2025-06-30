@@ -5,6 +5,10 @@
   @include button-base;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   
   &::before {
     content: '';
