@@ -31,7 +31,7 @@ export const Home: React.FC = () => {
 
   const stats = [
     { label: 'Projetos', value: '15+', suffix: '' },
-    { label: 'Anos de', value: '2+', suffix: 'Experiência' },
+    { label: 'Ano de', value: '1+', suffix: 'Experiência' },
     { label: 'Tecnologias', value: '8+', suffix: 'Dominadas' },
     { label: 'Satisfação', value: '100%', suffix: 'do Cliente' },
   ];
@@ -67,28 +67,6 @@ export const Home: React.FC = () => {
 
   return (
     <div className={styles.home}>
-      {/* Animated Background */}
-      <div className={styles.background}>
-        <div className={styles.particles}>
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={styles.particle}
-              animate={{
-                x: [0, Math.random() * 100 - 50],
-                y: [0, Math.random() * 100 - 50],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
       <div className={styles.container}>
         {/* Hero Section */}
         <motion.section
@@ -104,8 +82,8 @@ export const Home: React.FC = () => {
             </motion.div>
 
             <motion.h1 className={styles.title} variants={itemVariants}>
-              <span className={styles.name}>Vitor</span>
-              <span className={styles.surname}>Melo</span>
+              <span className={styles.name}>Vitor Martins Melo</span>
+       
             </motion.h1>
 
             <motion.div className={styles.typingContainer} variants={itemVariants}>

@@ -3,19 +3,23 @@
 
 .projects {
   min-height: 100vh;
-  background: #111014;
+  background: linear-gradient(120deg, #181824 0%, #23235b 60%, #6a11cb 100%);
   padding: $spacing-4xl 0;
   display: flex;
   flex-direction: column;
   
   @include mobile {
-    padding: $spacing-3xl 0;
+    padding: $spacing-2xl 0;
   }
 }
 
 .container {
   @include container;
   min-height: 80vh;
+  
+  @include mobile {
+    min-height: auto;
+  }
 }
 
 // ===== Hero Section =====
@@ -24,13 +28,17 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
 .heroContent {
   @include flex-column;
   gap: $spacing-lg;
+  
+  @include mobile {
+    gap: $spacing-md;
+  }
 }
 
 .title {
@@ -39,6 +47,7 @@
   
   @include mobile {
     @include heading-2;
+    font-size: $font-size-4xl;
   }
 }
 
@@ -54,6 +63,8 @@
   
   @include mobile {
     @include body-text;
+    font-size: $font-size-base;
+    padding: 0 $spacing-sm;
   }
 }
 
@@ -70,6 +81,10 @@
   @include flex-column;
   gap: $spacing-xl;
   text-align: center;
+  
+  @include mobile {
+    gap: $spacing-lg;
+  }
 }
 
 .filtersHeader {
@@ -89,6 +104,7 @@
   
   @include mobile {
     @include heading-4;
+    font-size: $font-size-lg;
   }
 }
 
@@ -99,6 +115,7 @@
   
   @include mobile {
     gap: $spacing-sm;
+    justify-content: center;
   }
 }
 
@@ -107,13 +124,18 @@
   
   @include mobile {
     min-width: 80px;
-    font-size: 0.875rem;
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
   }
 }
 
 // ===== Projects Grid =====
 .projectsGrid {
   margin-bottom: $spacing-4xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-3xl;
+  }
 }
 
 .grid {
@@ -123,7 +145,7 @@
   
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-xl;
+    gap: $spacing-lg;
   }
   
   @include tablet {
@@ -133,15 +155,16 @@
 }
 
 .projectCard {
-  background: $dark-bg-secondary;
+  background: rgba($dark-bg-card, 0.5);
   border-radius: $border-radius-lg;
   border: 1px solid $border-color;
-  overflow: unset;
+  overflow: hidden;
   transition: all $transition-normal;
   
   &:hover {
     border-color: $primary-purple;
-    box-shadow: $shadow-purple-lg;
+    box-shadow: $shadow-purple;
+    transform: translateY(-2px);
   }
 }
 
@@ -150,6 +173,10 @@
   height: 200px;
   background: linear-gradient(135deg, rgba($primary-purple, 0.1), rgba($secondary-purple, 0.1));
   overflow: hidden;
+  
+  @include mobile {
+    height: 180px;
+  }
 }
 
 .imagePlaceholder {
@@ -172,22 +199,43 @@
 .overlayContent {
   @include flex-column;
   gap: $spacing-md;
+  
+  @include mobile {
+    gap: $spacing-sm;
+  }
 }
 
 .overlayButton {
   min-width: 120px;
+  
+  @include mobile {
+    min-width: 100px;
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+  }
 }
 
 .projectContent {
   padding: $spacing-xl;
   @include flex-column;
   gap: $spacing-lg;
+  
+  @include mobile {
+    padding: $spacing-lg;
+    gap: $spacing-md;
+  }
 }
 
 .projectHeader {
   @include flex-between;
   align-items: flex-start;
   gap: $spacing-md;
+  
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
 }
 
 .projectTitle {
@@ -195,19 +243,27 @@
   color: $text-primary;
   margin: 0;
   flex: 1;
+  
+  @include mobile {
+    @include heading-5;
+    font-size: $font-size-lg;
+  }
 }
 
 .projectLinks {
   @include flex-center;
   gap: $spacing-sm;
-  flex-shrink: 0;
+  
+  @include mobile {
+    align-self: flex-end;
+  }
 }
 
 .projectLink {
   @include flex-center;
   width: 36px;
   height: 36px;
-  border-radius: $border-radius-full;
+  border-radius: $border-radius-md;
   background: rgba($primary-purple, 0.1);
   color: $text-secondary;
   transition: all $transition-normal;
@@ -215,7 +271,12 @@
   &:hover {
     background: $primary-purple;
     color: $text-primary;
-    transform: translateY(-2px);
+    box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -224,21 +285,35 @@
   color: $text-secondary;
   line-height: 1.6;
   margin: 0;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
 }
 
 .projectTechnologies {
   @include flex-center;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
   flex-wrap: wrap;
+  
+  @include mobile {
+    gap: $spacing-xs;
+  }
 }
 
 .technology {
-  @include caption-text;
   padding: $spacing-xs $spacing-sm;
   background: rgba($primary-purple, 0.1);
   color: $primary-purple;
-  border-radius: $border-radius-sm;
-  border: 1px solid rgba($primary-purple, 0.2);
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  
+  @include mobile {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
 }
 
 .projectStats {
@@ -356,4 +431,19 @@
     );
     animation: shimmer 1.5s infinite;
   }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectCard {
+  animation: fadeInUp 0.6s ease-out;
 } 

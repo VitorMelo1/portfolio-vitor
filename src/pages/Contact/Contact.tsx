@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
 import styles from './Contact.module.scss';
+import emailjs from 'emailjs-com';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -102,22 +103,21 @@ export const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      // Simular envio do formulário
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Aqui você pode integrar com um serviço real como EmailJS, Formspree, etc.
-      console.log('Formulário enviado:', formData);
-      
+      await emailjs.sendForm(
+        'service_69p352o',
+        'template_a8592e9',
+        e.currentTarget,
+        'tV7EtBdLEn4RV_lst'
+      );
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -232,110 +232,112 @@ export const Contact: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <motion.div className={styles.formContent} variants={itemVariants}>
-              <h2 className={styles.sectionTitle}>Envie uma Mensagem</h2>
-              <p className={styles.sectionSubtitle}>
-                Preencha o formulário abaixo e eu responderei o mais rápido possível
-              </p>
-              
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="name" className={styles.label}>
-                    Nome Completo
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className={styles.input}
-                    placeholder="Seu nome completo"
-                    required
-                  />
-                </div>
+            <motion.div className={styles.formContainer} variants={itemVariants}>
+              <div className={styles.formContent}>
+                <h2 className={styles.sectionTitle}>Envie uma Mensagem</h2>
+                <p className={styles.sectionSubtitle}>
+                  Preencha o formulário abaixo e eu responderei o mais rápido possível
+                </p>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                  <input type="hidden" name="title" value="Contato pelo Portfólio" />
+                  <div className={styles.formGroup}>
+                    <label htmlFor="name" className={styles.label}>
+                      Nome Completo
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className={styles.input}
+                      placeholder="Seu nome completo"
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.label}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className={styles.input}
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email" className={styles.label}>
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={styles.input}
+                      placeholder="seu@email.com"
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="message" className={styles.label}>
-                    Mensagem
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className={styles.textarea}
-                    placeholder="Conte-me sobre seu projeto ou ideia..."
-                    rows={6}
-                    required
-                  />
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="message" className={styles.label}>
+                      Mensagem
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className={styles.textarea}
+                      placeholder="Conte-me sobre seu projeto ou ideia..."
+                      rows={6}
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formActions}>
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className={styles.submitButton}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className={styles.spinner} />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={20} />
-                        Enviar Mensagem
-                      </>
+                  <div className={styles.formActions}>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      disabled={isSubmitting}
+                      className={styles.submitButton}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className={styles.spinner} />
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={20} />
+                          Enviar Mensagem
+                        </>
+                      )}
+                    </Button>
+                  </div>
+
+                  {/* Status Messages */}
+                  <AnimatePresence>
+                    {submitStatus === 'success' && (
+                      <motion.div
+                        className={styles.statusMessage}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        <CheckCircle size={20} />
+                        <span>Mensagem enviada com sucesso! Entrarei em contato em breve.</span>
+                      </motion.div>
                     )}
-                  </Button>
-                </div>
 
-                {/* Status Messages */}
-                <AnimatePresence>
-                  {submitStatus === 'success' && (
-                    <motion.div
-                      className={styles.statusMessage}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      <CheckCircle size={20} />
-                      <span>Mensagem enviada com sucesso! Entrarei em contato em breve.</span>
-                    </motion.div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <motion.div
-                      className={`${styles.statusMessage} ${styles.error}`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      <AlertCircle size={20} />
-                      <span>Erro ao enviar mensagem. Tente novamente ou use um dos contatos acima.</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </form>
+                    {submitStatus === 'error' && (
+                      <motion.div
+                        className={`${styles.statusMessage} ${styles.error}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        <AlertCircle size={20} />
+                        <span>Erro ao enviar mensagem. Tente novamente ou use um dos contatos acima.</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </form>
+              </div>
             </motion.div>
           </motion.section>
         </div>

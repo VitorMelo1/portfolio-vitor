@@ -7,13 +7,13 @@
   left: 0;
   right: 0;
   z-index: $z-fixed;
-  background: rgba($dark-bg, 0.8);
+  background: rgba($dark-bg, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba($border-color, 0.3);
   transition: all $transition-normal;
   
   &.scrolled {
-    background: rgba($dark-bg, 0.95);
+    background: rgba($dark-bg, 0.98);
     box-shadow: $shadow-lg;
   }
 }
@@ -25,7 +25,7 @@
   height: 70px;
   
   @include mobile {
-    padding: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
     height: 60px;
   }
 }
@@ -51,7 +51,7 @@
   margin-left: $spacing-xs;
 }
 
-// ===== Navegação =====
+// ===== Navegação Desktop =====
 .nav {
   @include mobile {
     display: none;
@@ -100,9 +100,17 @@
       width: 100%;
     }
   }
+  
+  &.active {
+    color: $primary-purple;
+    
+    &::after {
+      width: 100%;
+    }
+  }
 }
 
-// ===== Links Sociais =====
+// ===== Links Sociais Desktop =====
 .socialLinks {
   @include flex-center;
   gap: $spacing-sm;
@@ -137,8 +145,8 @@
 .mobileMenuButton {
   display: none;
   @include flex-center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: $border-radius-md;
   background: rgba($primary-purple, 0.1);
   color: $text-primary;
@@ -156,35 +164,93 @@
   }
 }
 
+// ===== Overlay do Menu Mobile =====
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($dark-bg, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: $z-modal-backdrop;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 // ===== Menu Mobile =====
 .mobileMenu {
   position: fixed;
-  top: 60px;
-  right: 0;
-  bottom: 0;
-  width: 280px;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
   background: $dark-bg;
-  border-left: 1px solid $border-color;
   z-index: $z-modal;
+  transition: all $transition-normal;
+  overflow-y: auto;
   
-  @include mobile {
-    width: 100%;
+  &.open {
+    right: 0;
+  }
+  
+  @include tablet-up {
+    width: 320px;
+    right: -320px;
   }
 }
 
 .mobileMenuContent {
   @include flex-column;
   height: 100%;
-  padding: $spacing-lg;
+  padding: $spacing-xl $spacing-lg;
+  padding-top: 80px;
+}
+
+.mobileMenuHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $border-color;
+}
+
+.mobileMenuTitle {
+  color: $text-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+.mobileMenuClose {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-md;
+  background: rgba($primary-purple, 0.1);
+  color: $text-primary;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $primary-purple;
+    box-shadow: $shadow-purple;
+  }
 }
 
 .mobileNav {
   flex: 1;
+  margin-bottom: $spacing-xl;
 }
 
 .mobileNavList {
   @include flex-column;
-  gap: $spacing-md;
+  gap: $spacing-sm;
 }
 
 .mobileNavItem {
@@ -199,13 +265,19 @@
   color: $text-secondary;
   font-size: $font-size-lg;
   font-weight: $font-weight-medium;
-  padding: $spacing-md;
+  padding: $spacing-md $spacing-lg;
   border-radius: $border-radius-lg;
   border: 1px solid transparent;
   transition: all $transition-normal;
   
   &:hover {
     background: rgba($primary-purple, 0.1);
+    color: $primary-purple;
+    border-color: $primary-purple;
+  }
+  
+  &.active {
+    background: rgba($primary-purple, 0.15);
     color: $primary-purple;
     border-color: $primary-purple;
   }
@@ -222,7 +294,7 @@
   @include flex-center;
   justify-content: flex-start;
   gap: $spacing-md;
-  padding: $spacing-md;
+  padding: $spacing-md $spacing-lg;
   border-radius: $border-radius-lg;
   background: rgba($primary-purple, 0.1);
   color: $text-secondary;

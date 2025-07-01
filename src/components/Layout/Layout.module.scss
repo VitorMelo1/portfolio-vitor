@@ -34,16 +34,23 @@
   transition: all $transition-normal;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+  
   &:hover {
     transform: translateY(-2px);
     box-shadow: $shadow-purple-lg, 0 0 30px rgba($primary-purple, 0.5);
   }
   
   @include mobile {
-    bottom: $spacing-lg;
-    right: $spacing-lg;
+    bottom: $spacing-md;
+    right: $spacing-md;
     width: 45px;
     height: 45px;
+    box-shadow: $shadow-purple;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $shadow-purple, 0 0 20px rgba($primary-purple, 0.4);
+    }
   }
 } 

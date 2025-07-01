@@ -52,7 +52,7 @@ export const About: React.FC = () => {
   const stats = [
     { label: 'Projetos Concluídos', value: '15+', icon: <Target size={24} /> },
     { label: 'Tecnologias Dominadas', value: '8+', icon: <Zap size={24} /> },
-    { label: 'Anos de Experiência', value: '2+', icon: <Award size={24} /> },
+    { label: 'Ano de Experiência', value: '1+', icon: <Award size={24} /> },
     { label: 'Satisfação do Cliente', value: '100%', icon: <Heart size={24} /> },
   ];
 
@@ -112,11 +112,11 @@ export const About: React.FC = () => {
               <div className={styles.bioInfo}>
                 <div className={styles.infoItem}>
                   <MapPin size={20} />
-                  <span>Goiânia, GO</span>
+                  <span>Jaragua, GO</span>
                 </div>
                 <div className={styles.infoItem}>
                   <Calendar size={20} />
-                  <span>22 anos</span>
+                  <span>20 anos</span>
                 </div>
                 <div className={styles.infoItem}>
                   <GraduationCap size={20} />
@@ -125,22 +125,18 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            <div className={styles.bioText}>
-              <p>
-                Olá! Sou Vitor Martins Melo, um desenvolvedor front-end apaixonado por criar 
-                interfaces modernas e experiências digitais que impressionam. Com 2+ anos de 
-                experiência, dedico-me a transformar ideias em realidade através do código.
-              </p>
-              <p>
-                Minha jornada começou na Universidade Federal de Goiás, onde estudo 
-                Engenharia de Software. Desde então, tenho trabalhado com as tecnologias 
-                mais modernas do mercado, sempre buscando aprender e evoluir.
-              </p>
-              <p>
-                Acredito que a tecnologia deve ser não apenas funcional, mas também 
-                bela e intuitiva. Por isso, foco em criar interfaces que combinam 
-                design elegante com performance excepcional.
-              </p>
+            <div className={styles.bioCard}>
+              <div className={styles.bioText}>
+                <p className={styles.paragraph}>
+                  Olá! Sou Vitor Martins Melo, desenvolvedor front-end com foco em transformar ideias em interfaces modernas, fluidas e visualmente marcantes. Com mais de 1 ano e 6 meses de experiência prática, atuo na criação de soluções digitais que unem design elegante, alta performance e uma experiência do usuário intuitiva.
+                </p>
+                <p className={styles.paragraph}>
+                  Minha trajetória começou na <span className={styles.highlight}>UniEVANGÉLICA</span> – Centro Universitário de Anápolis, onde curso Engenharia de Software. Desde então, venho me aprofundando nas tecnologias mais atuais do mercado — como <span className={styles.highlight}>React</span>, <span className={styles.highlight}>TypeScript</span> e <span className={styles.highlight}>SCSS</span> — enquanto desenvolvo projetos reais que impactam pessoas, como sistemas de reserva, monitoramento, portfólios interativos e plataformas de negócios digitais.
+                </p>
+                <p className={styles.paragraph}>
+                  Acredito que a tecnologia deve ser acessível, inteligente e envolvente. Por isso, meu objetivo vai além de apenas escrever código: busco criar experiências digitais que encantam pela usabilidade, pela estética e pelo propósito que entregam.
+                </p>
+              </div>
             </div>
           </motion.div>
         </motion.section>
