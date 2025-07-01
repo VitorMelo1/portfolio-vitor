@@ -291,6 +291,17 @@
   }
 }
 
+@mixin heading-5 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+  
+  @include mobile {
+    font-size: $font-size-base;
+  }
+}
+
 @mixin body-text {
   font-size: $font-size-base;
   font-weight: $font-weight-normal;

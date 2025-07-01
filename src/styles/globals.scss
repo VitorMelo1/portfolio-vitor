@@ -40,6 +40,11 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
+  
+  @include mobile {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -101,10 +106,16 @@ main {
   }
   
   @include mobile {
-    bottom: $spacing-lg;
-    right: $spacing-lg;
+    bottom: $spacing-md;
+    right: $spacing-md;
     width: 45px;
     height: 45px;
+    box-shadow: $shadow-purple;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $shadow-purple, 0 0 20px rgba($primary-purple, 0.4);
+    }
   }
 }
 
@@ -209,11 +220,11 @@ main {
 
 // ===== Cores de Fundo =====
 .bg-primary {
-  background-color: $dark-bg;
+  background: $dark-bg;
 }
 
 .bg-secondary {
-  background-color: $dark-bg-secondary;
+  background: $dark-bg-secondary;
 }
 
 .bg-tertiary {
@@ -221,7 +232,7 @@ main {
 }
 
 .bg-card {
-  background-color: $dark-bg-card;
+  background: $dark-bg-card;
 }
 
 .bg-gradient {
@@ -459,4 +470,53 @@ main {
 
 .neon-glow {
   @include neon-glow;
+}
+
+// ===== Responsividade Mobile =====
+@include mobile {
+  .p-1 { padding: $spacing-xs; }
+  .p-2 { padding: $spacing-sm; }
+  .p-3 { padding: $spacing-md; }
+  .p-4 { padding: $spacing-lg; }
+  .p-5 { padding: $spacing-xl; }
+  
+  .m-1 { margin: $spacing-xs; }
+  .m-2 { margin: $spacing-sm; }
+  .m-3 { margin: $spacing-md; }
+  .m-4 { margin: $spacing-lg; }
+  .m-5 { margin: $spacing-xl; }
+}
+
+// ===== Utilitários Mobile =====
+@include mobile {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-block {
+    display: block !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-text-left {
+    text-align: left !important;
+  }
+  
+  .mobile-text-right {
+    text-align: right !important;
+  }
+}
+
+// ===== Utilitários Desktop =====
+@include desktop {
+  .desktop-hidden {
+    display: none !important;
+  }
+  
+  .desktop-block {
+    display: block !important;
+  }
 } 

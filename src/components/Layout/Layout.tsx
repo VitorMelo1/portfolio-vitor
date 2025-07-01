@@ -19,6 +19,11 @@ export const Layout: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll para o topo ao mudar de rota
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   const handleNavigate = (section: string) => {
     const element = document.getElementById(section);
     if (element) {

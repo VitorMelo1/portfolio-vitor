@@ -24,6 +24,10 @@
   &:hover::before {
     left: 100%;
   }
+  
+  @include mobile {
+    gap: 0.375rem;
+  }
 }
 
 // ===== Variantes =====
@@ -65,18 +69,33 @@
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-sm;
   border-radius: $border-radius-md;
+  
+  @include mobile {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
 }
 
 .md {
   padding: $spacing-sm $spacing-lg;
   font-size: $font-size-base;
   border-radius: $border-radius-lg;
+  
+  @include mobile {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
 }
 
 .lg {
   padding: $spacing-md $spacing-xl;
   font-size: $font-size-lg;
   border-radius: $border-radius-xl;
+  
+  @include mobile {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-base;
+  }
 }
 
 // ===== Estados =====
@@ -103,6 +122,15 @@
     margin-right: 0;
     margin-left: $spacing-xs;
   }
+  
+  @include mobile {
+    margin-right: 0.25rem;
+    
+    &:last-child {
+      margin-right: 0;
+      margin-left: 0.25rem;
+    }
+  }
 }
 
 .text {
@@ -117,6 +145,12 @@
   border-top: 2px solid currentColor;
   border-radius: 50%;
   margin-right: $spacing-xs;
+  
+  @include mobile {
+    width: 14px;
+    height: 14px;
+    margin-right: 0.25rem;
+  }
 }
 
 // ===== Responsividade =====

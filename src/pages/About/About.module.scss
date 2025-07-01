@@ -3,19 +3,23 @@
 
 .about {
   min-height: 100vh;
-  background: #111014;
+  background: linear-gradient(120deg, #181824 0%, #23235b 60%, #6a11cb 100%);
   padding: $spacing-4xl 0;
   display: flex;
   flex-direction: column;
   
   @include mobile {
-    padding: $spacing-3xl 0;
+    padding: $spacing-2xl 0;
   }
 }
 
 .container {
   @include container;
   min-height: 80vh;
+  
+  @include mobile {
+    min-height: auto;
+  }
 }
 
 // ===== Hero Section =====
@@ -24,13 +28,17 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
 .heroContent {
   @include flex-column;
   gap: $spacing-lg;
+  
+  @include mobile {
+    gap: $spacing-md;
+  }
 }
 
 .title {
@@ -39,6 +47,7 @@
   
   @include mobile {
     @include heading-2;
+    font-size: $font-size-4xl;
   }
 }
 
@@ -54,6 +63,8 @@
   
   @include mobile {
     @include body-text;
+    font-size: $font-size-base;
+    padding: 0 $spacing-sm;
   }
 }
 
@@ -62,19 +73,27 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
 .bioContent {
   @include flex-column;
   gap: $spacing-3xl;
+  
+  @include mobile {
+    gap: $spacing-2xl;
+  }
 }
 
 .bioHeader {
   @include flex-column;
   gap: $spacing-xl;
   text-align: center;
+  
+  @include mobile {
+    gap: $spacing-lg;
+  }
 }
 
 .sectionTitle {
@@ -83,6 +102,7 @@
   
   @include mobile {
     @include heading-3;
+    font-size: $font-size-2xl;
   }
 }
 
@@ -103,6 +123,10 @@
   color: $text-secondary;
   @include body-text;
   
+  @include mobile {
+    font-size: $font-size-sm;
+  }
+  
   svg {
     color: $primary-purple;
   }
@@ -114,6 +138,11 @@
   max-width: 800px;
   margin: 0 auto;
   
+  @include mobile {
+    gap: $spacing-md;
+    padding: 0 $spacing-sm;
+  }
+  
   p {
     @include body-text;
     color: $text-secondary;
@@ -122,8 +151,74 @@
     
     @include mobile {
       text-align: left;
+      font-size: $font-size-base;
+      line-height: 1.6;
     }
   }
+}
+
+.bioCard {
+  background: rgba(20, 20, 40, 0.55);
+  border-radius: 28px;
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.22);
+  padding: 3rem 2.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: #f3f3f3;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+  overflow: hidden;
+
+  // Gradiente sutil na borda
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(151deg, #6a11cb -26%, #23235b 60%);
+    z-index: 1;
+    pointer-events: none;
+    mask-image: linear-gradient(#fff 0 0);
+    -webkit-mask-image: linear-gradient(#fff 0 0);
+    mix-blend-mode: lighten;
+  }
+
+  &:hover {
+    box-shadow: 0 12px 48px 0 rgba(106, 17, 203, 0.18);
+    background: rgba(30, 20, 60, 0.65);
+    border-color: #6a11cb;
+  }
+}
+
+.bioText {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: #f3f3f3;
+}
+
+.paragraph {
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  strong, b, .highlight {
+    color: #b388ff;
+    font-weight: 600;
+  }
+}
+
+.highlight {
+  color: #b388ff;
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 // ===== Stats Section =====
@@ -131,7 +226,7 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
@@ -141,8 +236,12 @@
   gap: $spacing-xl;
   
   @include mobile {
-    grid-template-columns: 1fr;
-    gap: $spacing-lg;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -151,7 +250,7 @@
   align-items: center;
   gap: $spacing-md;
   padding: $spacing-2xl;
-  background: $dark-bg-secondary;
+  background: rgba($dark-bg-card, 0.5);
   border-radius: $border-radius-lg;
   border: 1px solid $border-color;
   text-align: center;
@@ -160,12 +259,22 @@
   &:hover {
     border-color: $primary-purple;
     box-shadow: $shadow-purple;
+    transform: translateY(-2px);
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
+    gap: $spacing-sm;
   }
 }
 
 .statIcon {
   color: $primary-purple;
   margin-bottom: $spacing-sm;
+  
+  @include mobile {
+    margin-bottom: $spacing-xs;
+  }
 }
 
 .statValue {
@@ -174,12 +283,17 @@
   
   @include mobile {
     @include heading-3;
+    font-size: $font-size-xl;
   }
 }
 
 .statLabel {
   @include body-text;
   color: $text-secondary;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 // ===== Tech Stack Section =====
@@ -187,7 +301,7 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
@@ -195,6 +309,10 @@
   @include flex-column;
   gap: $spacing-3xl;
   text-align: center;
+  
+  @include mobile {
+    gap: $spacing-2xl;
+  }
 }
 
 .sectionSubtitle {
@@ -202,16 +320,21 @@
   color: $text-secondary;
   max-width: 600px;
   margin: 0 auto;
+  
+  @include mobile {
+    font-size: $font-size-base;
+    padding: 0 $spacing-sm;
+  }
 }
 
 .techGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-xl;
+  gap: $spacing-lg;
   
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-lg;
+    gap: $spacing-md;
   }
 }
 
@@ -219,144 +342,197 @@
   @include flex-center;
   gap: $spacing-lg;
   padding: $spacing-xl;
-  background: $dark-bg-secondary;
-  border-radius: $border-radius-lg;
+  background: rgba($dark-bg-card, 0.5);
   border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
   transition: all $transition-normal;
   
   &:hover {
     border-color: $primary-purple;
     box-shadow: $shadow-purple;
+    transform: translateY(-2px);
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
+    gap: $spacing-md;
   }
 }
 
 .techIcon {
   font-size: 2rem;
-  min-width: 60px;
-  text-align: center;
+  flex-shrink: 0;
+  
+  @include mobile {
+    font-size: 1.5rem;
+  }
 }
 
 .techInfo {
-  flex: 1;
   @include flex-column;
   gap: $spacing-sm;
+  flex: 1;
+  
+  @include mobile {
+    gap: $spacing-xs;
+  }
 }
 
 .techName {
   @include heading-4;
   color: $text-primary;
   margin: 0;
+  
+  @include mobile {
+    @include heading-5;
+    font-size: $font-size-lg;
+  }
 }
 
 .progressBar {
   width: 100%;
   height: 8px;
-  background: rgba($primary-purple, 0.2);
+  background: rgba($border-color, 0.3);
   border-radius: $border-radius-full;
   overflow: hidden;
+  
+  @include mobile {
+    height: 6px;
+  }
 }
 
 .progressFill {
   height: 100%;
   background: $gradient-primary;
   border-radius: $border-radius-full;
+  transition: width 1s ease-out;
 }
 
 .techLevel {
-  @include caption-text;
+  @include body-text;
   color: $text-secondary;
-  text-align: right;
+  font-weight: $font-weight-medium;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 // ===== Timeline Section =====
 .timeline {
-  margin-bottom: $spacing-4xl;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-3xl;
+  }
 }
 
 .timelineContent {
   @include flex-column;
   gap: $spacing-3xl;
   text-align: center;
+  
+  @include mobile {
+    gap: $spacing-2xl;
+  }
 }
 
 .timelineList {
   @include flex-column;
-  gap: $spacing-2xl;
-  position: relative;
+  gap: $spacing-xl;
+  max-width: 800px;
+  margin: 0 auto;
   
-  &::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: $gradient-primary;
-    opacity: 0.3;
-    
-    @include mobile {
-      left: 20px;
-    }
+  @include mobile {
+    gap: $spacing-lg;
+    padding: 0 $spacing-sm;
   }
 }
 
 .timelineItem {
   @include flex-center;
-  gap: $spacing-xl;
-  position: relative;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  background: rgba($dark-bg-card, 0.5);
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  text-align: left;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-purple;
+    box-shadow: $shadow-purple;
+    transform: translateY(-2px);
+  }
   
   @include mobile {
-    gap: $spacing-lg;
-    align-items: flex-start;
+    @include flex-column;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    text-align: center;
   }
 }
 
 .timelineIcon {
-  @include flex-center;
-  width: 60px;
-  height: 60px;
-  background: $primary-purple;
-  border-radius: $border-radius-full;
-  color: $text-primary;
-  z-index: 1;
+  color: $primary-purple;
   flex-shrink: 0;
   
   @include mobile {
-    width: 40px;
-    height: 40px;
+    margin-bottom: $spacing-xs;
   }
 }
 
 .timelineContent {
-  flex: 1;
-  text-align: left;
   @include flex-column;
   gap: $spacing-sm;
+  flex: 1;
+  
+  @include mobile {
+    gap: $spacing-xs;
+  }
 }
 
 .timelineYear {
-  @include caption-text;
-  color: $primary-purple;
-  font-weight: $font-weight-bold;
+  @include heading-4;
+  @include gradient-text;
+  margin: 0;
+  
+  @include mobile {
+    @include heading-5;
+    font-size: $font-size-lg;
+  }
 }
 
 .timelineTitle {
   @include heading-4;
   color: $text-primary;
   margin: 0;
+  
+  @include mobile {
+    @include heading-5;
+    font-size: $font-size-lg;
+  }
 }
 
 .timelineCompany {
   @include body-text;
-  color: $text-secondary;
-  font-style: italic;
+  color: $primary-purple;
+  font-weight: $font-weight-medium;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 .timelineDescription {
   @include body-text;
   color: $text-secondary;
-  line-height: 1.6;
   margin: 0;
+  line-height: 1.6;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 // ===== Responsividade Adicional =====

@@ -3,21 +3,11 @@
 
 .home {
   min-height: 100vh;
-  background: #111014;
+  background: linear-gradient(120deg, #181824 0%, #23235b 60%, #6a11cb 100%);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-// ===== Background =====
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
 }
 
 .particles {
@@ -48,12 +38,24 @@
   @include container;
   padding: $spacing-4xl 0;
   min-height: 80vh;
+  
+  @include mobile {
+    padding: $spacing-2xl 0;
+    min-height: 70vh;
+  }
 }
-.button{
+
+.button {
   display: flex;
   flex-direction: row !important;
   width: 15rem;
+  
+  @include mobile {
+    width: 100%;
+    max-width: 280px;
+  }
 }
+
 // ===== Hero Section =====
 .hero {
   width: 100%;
@@ -65,7 +67,8 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
+    padding-top: $spacing-xl;
   }
 }
 
@@ -75,6 +78,11 @@
   max-width: 800px;
   margin: 0 auto;
   align-items: center;
+  
+  @include mobile {
+    gap: $spacing-xl;
+    padding: 0 $spacing-md;
+  }
 }
 
 .greeting {
@@ -92,11 +100,19 @@
 .wave {
   font-size: 1.5rem;
   animation: wave 2s ease-in-out infinite;
+  
+  @include mobile {
+    font-size: 1.25rem;
+  }
 }
 
 .greetingText {
   @include body-text;
   color: $text-secondary;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 .title {
@@ -106,6 +122,12 @@
   
   @include mobile {
     @include heading-2;
+    font-size: $font-size-4xl;
+    line-height: 1.2;
+  }
+  
+  @include tablet {
+    font-size: $font-size-5xl;
   }
 }
 
@@ -133,6 +155,7 @@
   
   @include mobile {
     @include heading-4;
+    font-size: $font-size-lg;
   }
 }
 
@@ -149,7 +172,9 @@
   line-height: 1.8;
   
   @include mobile {
-    font-size: 1rem;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    padding: 0 $spacing-sm;
   }
 }
 
@@ -157,9 +182,12 @@
   @include flex-center;
   gap: $spacing-lg;
   flex-wrap: wrap;
+  
   @include mobile {
     @include flex-column;
     gap: $spacing-md;
+    width: 100%;
+    max-width: 320px;
   }
 }
 
@@ -167,6 +195,11 @@
   @include flex-center;
   gap: $spacing-md;
   margin-top: $spacing-lg;
+  
+  @include mobile {
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+  }
 }
 
 .socialLink {
@@ -200,41 +233,46 @@
   margin-bottom: $spacing-5xl;
   
   @include mobile {
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
   }
 }
 
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-xl;
+  gap: $spacing-lg;
   
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-lg;
+    gap: $spacing-md;
   }
 }
 
 .statCard {
   @include flex-column;
   align-items: center;
-  gap: $spacing-sm;
-  padding: $spacing-2xl;
-  background: $dark-bg-secondary;
-  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  background: rgba($dark-bg-card, 0.5);
   border: 1px solid $border-color;
+  border-radius: $border-radius-xl;
   text-align: center;
   transition: all $transition-normal;
   
   &:hover {
+    transform: translateY(-5px);
     border-color: $primary-purple;
     box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
   }
 }
 
 .statValue {
   @include heading-2;
   @include gradient-text;
+  margin-bottom: $spacing-xs;
   
   @include mobile {
     @include heading-3;
@@ -244,119 +282,112 @@
 .statLabel {
   @include body-text;
   color: $text-secondary;
-  text-align: center;
+  font-weight: $font-weight-medium;
+  
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 // ===== Quick Actions Section =====
 .quickActions {
-  margin-bottom: $spacing-4xl;
+  margin-bottom: $spacing-5xl;
+  
+  @include mobile {
+    margin-bottom: $spacing-3xl;
+  }
 }
 
 .actionsContent {
   @include flex-column;
-  gap: $spacing-3xl;
+  align-items: center;
   text-align: center;
+  
+  @include mobile {
+    padding: 0 $spacing-md;
+  }
 }
 
 .actionsTitle {
   @include heading-2;
   color: $text-primary;
+  margin-bottom: $spacing-xl;
   
   @include mobile {
     @include heading-3;
+    margin-bottom: $spacing-lg;
   }
 }
 
 .actionsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-xl;
+  gap: $spacing-lg;
+  width: 100%;
+  max-width: 900px;
   
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-lg;
+    gap: $spacing-md;
   }
 }
 
 .actionCard {
+  display: block;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+  
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .actionContent {
   @include flex-column;
-  gap: $spacing-md;
-  padding: $spacing-2xl;
-  background: $dark-bg-secondary;
-  border-radius: $border-radius-lg;
+  align-items: flex-start;
+  padding: $spacing-xl;
+  background: rgba($dark-bg-card, 0.5);
   border: 1px solid $border-color;
+  border-radius: $border-radius-xl;
   transition: all $transition-normal;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $gradient-primary;
-    opacity: 0;
-    transition: opacity $transition-normal;
-    z-index: 0;
-  }
+  height: 100%;
   
   &:hover {
+    transform: translateY(-5px);
     border-color: $primary-purple;
-    box-shadow: $shadow-purple-lg;
+    box-shadow: $shadow-purple;
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
+  }
+  
+  h3 {
+    @include heading-4;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
     
-    &::before {
-      opacity: 0.05;
+    @include mobile {
+      @include heading-5;
     }
   }
   
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-.actionContent h3 {
-  @include heading-4;
-  color: $text-primary;
-  margin: 0;
-}
-
-.actionContent p {
-  @include body-text;
-  color: $text-secondary;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.actionContent svg {
-  color: $primary-purple;
-  align-self: flex-end;
-  transition: transform $transition-normal;
-}
-
-.actionContent:hover svg {
-  transform: translateX(4px);
-}
-
-// ===== Responsividade Adicional =====
-@include tablet {
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
+  p {
+    @include body-text;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    flex: 1;
+    
+    @include mobile {
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-md;
+    }
   }
   
-  .actionsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .ctaButtons {
-    gap: $spacing-md;
+  svg {
+    color: $primary-purple;
+    align-self: flex-end;
   }
 }
 
@@ -369,7 +400,7 @@
     transform: rotate(20deg);
   }
   75% {
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
   }
 }
 
@@ -407,4 +438,10 @@
   50% {
     transform: scale(1.05);
   }
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 } 
