@@ -3,9 +3,5 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "target": "ES2015",
-    "lib": ["DOM", "DOM.Iterable", "ES2015"]
-  }
+  ]
 }

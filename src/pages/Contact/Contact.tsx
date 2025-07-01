@@ -160,7 +160,7 @@ export const Contact: React.FC = () => {
               </p>
               
               <div className={styles.infoGrid}>
-                {contactInfo.map((info) => (
+                {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.label}
                     className={styles.infoCard}
@@ -204,7 +204,7 @@ export const Contact: React.FC = () => {
               </p>
               
               <div className={styles.socialGrid}>
-                {socialLinks.map((social) => (
+                {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
