@@ -16,6 +16,7 @@ interface ButtonProps {
   iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
   loading?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -32,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
   iconPosition = 'left',
   fullWidth = false,
   loading = false,
+  type = 'button',
 }) => {
   const buttonVariants = {
     initial: { scale: 1 },
@@ -97,6 +99,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <motion.button
+      type={type}
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled || loading}

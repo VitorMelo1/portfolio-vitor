@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, easeOut } from 'framer-motion';
 import { 
   Send, 
   MessageCircle, 
@@ -89,7 +89,7 @@ export const Contact: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: easeOut,
       },
     },
   };
@@ -291,7 +291,7 @@ export const Contact: React.FC = () => {
                   <Button
                     type="submit"
                     variant="primary"
-                    size="large"
+                    size="lg"
                     disabled={isSubmitting}
                     className={styles.submitButton}
                   >
