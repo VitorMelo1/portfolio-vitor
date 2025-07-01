@@ -26,11 +26,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleNavigation = (section: string) => {
-    onNavigate(section);
-    setIsMobileMenuOpen(false);
-  };
-
   const navItems = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'projects', label: 'Projetos', path: '/projects' },
@@ -75,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const mobileMenuVariants = {
     closed: {
       opacity: 0,
-      x: '100%',
+      x: '-100%',
       transition: {
         duration: 0.3,
         ease: easeOut,

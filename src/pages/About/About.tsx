@@ -154,7 +154,7 @@ export const About: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className={styles.statsGrid}>
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 className={styles.statCard}
@@ -184,7 +184,7 @@ export const About: React.FC = () => {
             </p>
             
             <div className={styles.techGrid}>
-              {techStack.map((tech, index) => (
+              {techStack.map((tech) => (
                 <motion.div
                   key={tech.name}
                   className={styles.techCard}
@@ -200,7 +200,7 @@ export const About: React.FC = () => {
                         initial={{ width: 0 }}
                         whileInView={{ width: `${tech.level}%` }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
+                        transition={{ duration: 1, delay: 0.1 }}
                       />
                     </div>
                     <span className={styles.techLevel}>{tech.level}%</span>
@@ -226,7 +226,7 @@ export const About: React.FC = () => {
             </p>
             
             <div className={styles.timelineList}>
-              {timeline.map((item, index) => (
+              {timeline.map((item) => (
                 <motion.div
                   key={item.year}
                   className={styles.timelineItem}
