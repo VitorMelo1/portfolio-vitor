@@ -117,13 +117,13 @@ export const Projects: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.article
                 key={project.id}
                 className={styles.projectCard}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 whileHover={{ 
                   scale: 1.02, 
                   y: -5,
@@ -210,8 +210,8 @@ export const Projects: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* <div className={styles.projectStats}>
-                    <div className={styles.stat}>
+                  <div className={styles.projectStats}>
+                    {/* <div className={styles.stat}>
                       <span className={styles.statLabel}>Dificuldade:</span>
                       <span className={styles.statValue}>{project.difficulty}</span>
                     </div>
@@ -220,8 +220,8 @@ export const Projects: React.FC = () => {
                       <span className={`${styles.statValue} ${styles[project.status]}`}>
                         {project.status}
                       </span>
-                    </div>
-                  </div> */}
+                    </div> */}
+                  </div>
                 </div>
               </motion.article>
             ))}

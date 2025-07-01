@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Github, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
@@ -53,7 +53,7 @@ export const Home: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut',
+        ease: easeOut,
       },
     },
   };
@@ -123,16 +123,14 @@ export const Home: React.FC = () => {
 
             <motion.div className={styles.ctaButtons} variants={itemVariants}>
               <Link to="/projects">
-                <Button variant="primary" size="large">
+                <Button variant="primary" size="lg" className={styles.button} icon={<ArrowRight size={20} />} iconPosition="right">
                   Ver Projetos
-                  <ArrowRight size={20} />
                 </Button>
               </Link>
               
               <a href="https://wa.me/5562995054144" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="large">
+                <Button variant="outline" size="lg" icon={<MessageCircle size={20} />} iconPosition="right">
                   Fale no WhatsApp
-                  <MessageCircle size={20} />
                 </Button>
               </a>
             </motion.div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Send, 
   MessageCircle, 
@@ -40,7 +40,7 @@ export const Contact: React.FC = () => {
     {
       icon: <MapPin size={24} />,
       label: 'Localização',
-      value: 'Goiânia, GO - Brasil',
+      value: 'Jaraguá, GO - Brasil',
       href: null,
     },
   ];
