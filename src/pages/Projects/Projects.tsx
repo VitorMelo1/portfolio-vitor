@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, easeOut } from 'framer-motion';
 import { ExternalLink, Github, Filter, Code, Eye } from 'lucide-react';
 import { projects } from '../../data/projects';
 import { Button } from '../../components/Button/Button';
@@ -36,7 +36,7 @@ export const Projects: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: easeOut,
       },
     },
   };
@@ -81,7 +81,7 @@ export const Projects: React.FC = () => {
             <div className={styles.filterButtons}>
               <Button
                 variant={selectedFilter === 'all' ? 'primary' : 'outline'}
-                size="medium"
+                size="md"
                 onClick={() => handleFilterChange('all')}
                 className={styles.filterButton}
               >
@@ -92,7 +92,7 @@ export const Projects: React.FC = () => {
                 <Button
                   key={tech}
                   variant={selectedFilter === tech ? 'primary' : 'outline'}
-                  size="medium"
+                  size="md"
                   onClick={() => handleFilterChange(tech)}
                   className={styles.filterButton}
                 >
@@ -110,123 +110,122 @@ export const Projects: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedFilter}
-              className={styles.grid}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {filteredProjects.map((project, index) => (
-                <motion.article
-                  key={project.id}
-                  className={styles.projectCard}
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.02, 
-                    y: -5,
-                    transition: { duration: 0.2 }
-                  }}
-                  onHoverStart={() => setHoveredProject(project.id)}
-                  onHoverEnd={() => setHoveredProject(null)}
-                >
-                  <div className={styles.projectImage}>
-                    <div className={styles.imagePlaceholder}>
-                      <Code size={48} />
-                    </div>
-                    
-                    <AnimatePresence>
-                      {hoveredProject === project.id && (
-                        <motion.div
-                          className={styles.projectOverlay}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <div className={styles.overlayContent}>
+          <motion.div
+            key={selectedFilter}
+            className={styles.grid}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {filteredProjects.map((project) => (
+              <motion.article
+                key={project.id}
+                className={styles.projectCard}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                onHoverStart={() => setHoveredProject(project.id)}
+                onHoverEnd={() => setHoveredProject(null)}
+              >
+                <div className={styles.projectImage}>
+                  <div className={styles.imagePlaceholder}>
+                    <Code size={48} />
+                  </div>
+                  
+                  <AnimatePresence>
+                    {hoveredProject === project.id && (
+                      <motion.div
+                        className={styles.projectOverlay}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <div className={styles.overlayContent}>
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            onClick={() => window.open(project.githubUrl, '_blank')}
+                            className={styles.overlayButton}
+                          >
+                            <Github size={16} />
+                            Ver Código
+                          </Button>
+                          
+                          {project.liveUrl && (
                             <Button
-                              variant="primary"
-                              size="small"
-                              onClick={() => window.open(project.githubUrl, '_blank')}
+                              variant="outline"
+                              size="sm"
+                              onClick={() => window.open(project.liveUrl, '_blank')}
                               className={styles.overlayButton}
                             >
-                              <Github size={16} />
-                              Ver Código
+                              <Eye size={16} />
+                              Ver Demo
                             </Button>
-                            
-                            {project.liveUrl && (
-                              <Button
-                                variant="outline"
-                                size="small"
-                                onClick={() => window.open(project.liveUrl, '_blank')}
-                                className={styles.overlayButton}
-                              >
-                                <Eye size={16} />
-                                Ver Demo
-                              </Button>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
-                  <div className={styles.projectContent}>
-                    <div className={styles.projectHeader}>
-                      <h3 className={styles.projectTitle}>{project.title}</h3>
-                      <div className={styles.projectLinks}>
+                <div className={styles.projectContent}>
+                  <div className={styles.projectHeader}>
+                    <h3 className={styles.projectTitle}>{project.title}</h3>
+                    <div className={styles.projectLinks}>
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.projectLink}
+                      >
+                        <Github size={18} />
+                      </a>
+                      {project.liveUrl && (
                         <a
-                          href={project.githubUrl}
+                          href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.projectLink}
                         >
-                          <Github size={18} />
+                          <ExternalLink size={18} />
                         </a>
-                        {project.liveUrl && (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.projectLink}
-                          >
-                            <ExternalLink size={18} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className={styles.projectDescription}>
-                      {project.description}
-                    </p>
-
-                    <div className={styles.projectTechnologies}>
-                      {project.technologies.map((tech) => (
-                        <span key={tech} className={styles.technology}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className={styles.projectStats}>
-                      <div className={styles.stat}>
-                        <span className={styles.statLabel}>Dificuldade:</span>
-                        <span className={styles.statValue}>{project.difficulty}</span>
-                      </div>
-                      <div className={styles.stat}>
-                        <span className={styles.statLabel}>Status:</span>
-                        <span className={`${styles.statValue} ${styles[project.status]}`}>
-                          {project.status}
-                        </span>
-                      </div>
+                      )}
                     </div>
                   </div>
-                </motion.article>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+
+                  <p className={styles.projectDescription}>
+                    {project.description}
+                  </p>
+
+                  <div className={styles.projectTechnologies}>
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className={styles.technology}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* <div className={styles.projectStats}>
+                    <div className={styles.stat}>
+                      <span className={styles.statLabel}>Dificuldade:</span>
+                      <span className={styles.statValue}>{project.difficulty}</span>
+                    </div>
+                    <div className={styles.stat}>
+                      <span className={styles.statLabel}>Status:</span>
+                      <span className={`${styles.statValue} ${styles[project.status]}`}>
+                        {project.status}
+                      </span>
+                    </div>
+                  </div> */}
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
         </motion.section>
 
         {/* Empty State */}

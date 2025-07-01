@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, easeOut } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 import styles from './Header.module.scss';
 
@@ -24,11 +24,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const handleNavigation = (section: string) => {
-    onNavigate(section);
-    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -75,10 +70,10 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const mobileMenuVariants = {
     closed: {
       opacity: 0,
-      x: '100%',
+      x: '-100%',
       transition: {
         duration: 0.3,
-        ease: 'easeInOut',
+        ease: easeOut,
       },
     },
     open: {
@@ -86,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
       x: 0,
       transition: {
         duration: 0.3,
-        ease: 'easeInOut',
+        ease: easeOut,
       },
     },
   };

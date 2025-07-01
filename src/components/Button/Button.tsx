@@ -72,7 +72,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (href) {
     return (
       <motion.a
-        href={href}
+        href={disabled || loading ? undefined : href}
         target={target}
         rel={rel}
         className={buttonClasses}
@@ -80,7 +80,15 @@ export const Button: React.FC<ButtonProps> = ({
         initial="initial"
         whileHover="hover"
         whileTap="tap"
-        disabled={disabled || loading}
+        aria-disabled={disabled || loading}
+        tabIndex={disabled || loading ? -1 : 0}
+        onClick={e => {
+          if (disabled || loading) {
+            e.preventDefault();
+            return;
+          }
+          if (onClick) onClick();
+        }}
       >
         {content}
       </motion.a>
