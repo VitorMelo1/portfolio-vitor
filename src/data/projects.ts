@@ -182,9 +182,10 @@ export const projects: Project[] = [
   //   year: 2023
   // },
   {
+//nao finalizado ainda
     id: 'pulsetap',
     title: 'PulseTap',
-    description: 'Aplicação web inovadora para monitoramento de batimentos cardíacos em tempo real, com interface intuitiva e design futurista. Integra com dispositivos wearables e oferece análises detalhadas de saúde cardiovascular.',
+    description: 'Aplicação web inovadora para monitoramento de batimentos cardíacos em tempo real, com interface intuitiva e design futurista. Integra com dispositivos wearables e oferece análises detalhadas de saúde cardiovascular.Nao Finalizado',
     shortDescription: 'Monitoramento cardíaco em tempo real com IA',
     image: '/images/projetos/pulsetap.png',
     technologies: ['html5', 'CSS3', 'JavaScript','chart.js'],
