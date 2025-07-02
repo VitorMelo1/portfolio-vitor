@@ -114,7 +114,7 @@ export const Home: React.FC = () => {
             </motion.div>
 
             <motion.div className={styles.socialLinks} variants={itemVariants}>
-              {socialLinks.map((link) => (
+              {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
@@ -125,7 +125,7 @@ export const Home: React.FC = () => {
                   whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 }}
+                  transition={{ delay: index * 0.1 + 1 }}
                 >
                   {link.icon}
                   <span className={styles.srOnly}>{link.label}</span>
@@ -144,7 +144,7 @@ export const Home: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className={styles.statsGrid}>
-            {stats.map((stat) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 className={styles.statCard}

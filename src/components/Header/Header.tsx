@@ -44,7 +44,12 @@ export const Header: React.FC<HeaderProps> = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+
   const handleMobileMenuClose = () => {
+
+  const handleNavigation = (section: string) => {
+    onNavigate(section);
+
     setIsMobileMenuOpen(false);
   };
 
@@ -117,6 +122,8 @@ export const Header: React.FC<HeaderProps> = () => {
   const overlayVariants = {
     closed: {
       opacity: 0,
+      x: '100%',
+
       transition: {
         duration: 0.18,
         ease: easeOut,
