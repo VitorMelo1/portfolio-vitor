@@ -46,10 +46,6 @@ export const Header: React.FC<HeaderProps> = () => {
 
 
   const handleMobileMenuClose = () => {
-
-  const handleNavigation = (section: string) => {
-    onNavigate(section);
-
     setIsMobileMenuOpen(false);
   };
 
