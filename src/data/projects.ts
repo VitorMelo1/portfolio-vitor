@@ -190,7 +190,6 @@ export const projects: Project[] = [
     image: '/images/projetos/pulsetap.png',
     technologies: ['html5', 'CSS3', 'JavaScript','chart.js'],
     githubUrl: 'https://github.com/VitorMelo1/pulsetap',
-    liveUrl: 'https://pulsetap.vercel.app',
     featured: true,
     category: 'web',
     year: 2024
