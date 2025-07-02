@@ -13,24 +13,11 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: 'pulsetap',
-    title: 'PulseTap',
-    description: 'Aplicação web inovadora para monitoramento de batimentos cardíacos em tempo real, com interface intuitiva e design futurista. Integra com dispositivos wearables e oferece análises detalhadas de saúde cardiovascular.',
-    shortDescription: 'Monitoramento cardíaco em tempo real com IA',
-    image: '/images/projetos/pulsetap.png',
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Socket.io', 'Chart.js'],
-    githubUrl: 'https://github.com/VitorMelo1/pulsetap',
-    liveUrl: 'https://pulsetap.vercel.app',
-    featured: true,
-    category: 'web',
-    year: 2024
-  },
   // {
-  //   id: 'unistage',
-  //   title: 'UniStage',
-  //   description: 'Plataforma educacional completa para universidades, oferecendo gestão de estágios, conexão entre estudantes e empresas, e ferramentas de acompanhamento acadêmico com dashboard interativo.',
-  //   shortDescription: 'Plataforma de gestão de estágios universitários',
+    //   id: 'unistage',
+    //   title: 'UniStage',
+    //   description: 'Plataforma educacional completa para universidades, oferecendo gestão de estágios, conexão entre estudantes e empresas, e ferramentas de acompanhamento acadêmico com dashboard interativo.',
+    //   shortDescription: 'Plataforma de gestão de estágios universitários',
   //   image: '/images/projetos/unistage.png',
   //   technologies: ['React', 'TypeScript', 'SCSS', 'Firebase', 'Material-UI', 'React Router'],
   //   githubUrl: 'https://github.com/VitorMelo1/unistage',
@@ -52,18 +39,18 @@ export const projects: Project[] = [
     category: 'web',
     year: 2023
   },
-  {
-    id: 'laceup',
-    title: 'LaceUp',
-    description: 'Aplicação mobile para entusiastas de tênis, oferecendo catálogo interativo, sistema de reviews, notificações de lançamentos e comunidade de colecionadores com design responsivo.',
-    shortDescription: 'App para colecionadores de tênis',
-    image: '/images/projetos/laceup.png',
-    technologies: ['React Native', 'TypeScript', 'Firebase', 'Expo', 'React Navigation', 'AsyncStorage'],
-    githubUrl: 'https://github.com/VitorMelo1/laceup',
-    featured: true,
-    category: 'mobile',
-    year: 2024
-  },
+  // {
+    //   id: 'laceup',
+    //   title: 'LaceUp',
+    //   description: 'Aplicação mobile para entusiastas de tênis, oferecendo catálogo interativo, sistema de reviews, notificações de lançamentos e comunidade de colecionadores com design responsivo.',
+    //   shortDescription: 'App para colecionadores de tênis',
+    //   image: '/images/projetos/laceup.png',
+    //   technologies: ['React Native', 'TypeScript', 'Firebase', 'Expo', 'React Navigation', 'AsyncStorage'],
+  //   githubUrl: 'https://github.com/VitorMelo1/laceup',
+  //   featured: true,
+  //   category: 'mobile',
+  //   year: 2024
+  // },
   {
     id: 'portfolio-vitor',
     title: 'Portfólio Vitor',
@@ -72,13 +59,13 @@ export const projects: Project[] = [
     image: '/images/projetos/portfolio.png',
     technologies: ['React', 'TypeScript', 'SCSS', 'Framer Motion', 'Swiper', 'Lucide'],
     githubUrl: 'https://github.com/VitorMelo1/portfolio-vitor',
-    liveUrl: 'https://vitor-melo.vercel.app',
+    liveUrl: 'https://portfolio-vitor-wheat.vercel.app/',
     featured: false,
     category: 'web',
     year: 2024
   },
   // {
-  //   id: 'task-manager',
+    //   id: 'task-manager',
   //   title: 'Task Manager Pro',
   //   description: 'Sistema de gerenciamento de tarefas com drag & drop, categorização inteligente, lembretes, estatísticas e sincronização em tempo real entre dispositivos.',
   //   shortDescription: 'Gerenciador de tarefas com drag & drop',
@@ -104,53 +91,53 @@ export const projects: Project[] = [
   //   year: 2023
   // },
   // {
-  //   id: 'chat-app',
-  //   title: 'Chat App',
-  //   description: 'Aplicação de chat em tempo real com interface moderna, emojis, envio de arquivos, notificações push e design responsivo para desktop e mobile.',
-  //   shortDescription: 'Chat em tempo real com interface moderna',
-  //   image: '/images/projetos/chat-app.png',
-  //   technologies: ['React', 'TypeScript', 'Socket.io', 'SCSS', 'Emoji Picker', 'File Upload'],
-  //   githubUrl: 'https://github.com/VitorMelo1/chat-app',
-  //   liveUrl: 'https://chat-app-vitor.vercel.app',
-  //   featured: false,
-  //   category: 'web',
-  //   year: 2024
-  // },
-  {
-    id: 'lista-de-compras',
-    title: 'Lista de Compras',
-    description: 'Aplicação web para gerenciar listas de compras. Permite adicionar, marcar como comprado e remover itens, com atualização dinâmica e interface responsiva. Ideal para praticar manipulação de DOM, arrays e localStorage.',
-    shortDescription: 'Gerencie sua lista de compras de forma simples e prática.',
-    image: '/images/projetos/lista-de-compras.png',
-    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Font Awesome', 'Google Fonts'],
-    githubUrl: 'https://github.com/VitorMelo1/lista-de-compras',
-    liveUrl: 'https://vitormelo1.github.io/lista-de-compras/',
-    featured: true,
-    category: 'web',
-    year: 2023
-  },
-  {
-    id: 'serenatto-cafe',
-    title: 'Serenatto Café',
-    description: 'Site institucional de cafeteria com design moderno e responsivo. Utiliza SCSS para modularização dos estilos, facilitando manutenção e escalabilidade. Ótimo exemplo de hierarquia visual e boas práticas de pré-processadores CSS.',
-    shortDescription: 'Site moderno para cafeteria, focado em design e responsividade.',
-    image: '/images/projetos/serenatto-cafe.png',
-    technologies: ['SCSS', 'HTML5', 'CSS3', 'CSS Grid', 'Flexbox'],
-    githubUrl: 'https://github.com/VitorMelo1/serenatto-cafe',
-    liveUrl: 'https://vitormelo1.github.io/serenatto-cafe/',
-    featured: true,
-    category: 'web',
-    year: 2023
-  },
+    //   id: 'chat-app',
+    //   title: 'Chat App',
+    //   description: 'Aplicação de chat em tempo real com interface moderna, emojis, envio de arquivos, notificações push e design responsivo para desktop e mobile.',
+    //   shortDescription: 'Chat em tempo real com interface moderna',
+    //   image: '/images/projetos/chat-app.png',
+    //   technologies: ['React', 'TypeScript', 'Socket.io', 'SCSS', 'Emoji Picker', 'File Upload'],
+    //   githubUrl: 'https://github.com/VitorMelo1/chat-app',
+    //   liveUrl: 'https://chat-app-vitor.vercel.app',
+    //   featured: false,
+    //   category: 'web',
+    //   year: 2024
+    // },
+    {
+      id: 'lista-de-compras',
+      title: 'Lista de Compras',
+      description: 'Aplicação web para gerenciar listas de compras. Permite adicionar, marcar como comprado e remover itens, com atualização dinâmica e interface responsiva. Ideal para praticar manipulação de DOM, arrays e localStorage.',
+      shortDescription: 'Gerencie sua lista de compras de forma simples e prática.',
+      image: '/images/projetos/lista-de-compras.png',
+      technologies: ['JavaScript', 'HTML5', 'CSS3', 'Font Awesome', 'Google Fonts'],
+      githubUrl: 'https://github.com/VitorMelo1/lista-de-compras',
+      liveUrl: 'https://vitormelo1.github.io/lista-de-compras/',
+      featured: true,
+      category: 'web',
+      year: 2023
+    },
+    {
+      id: 'serenatto-cafe',
+      title: 'Serenatto Café',
+      description: 'Site institucional de cafeteria com design moderno e responsivo. Utiliza SCSS para modularização dos estilos, facilitando manutenção e escalabilidade. Ótimo exemplo de hierarquia visual e boas práticas de pré-processadores CSS.',
+      shortDescription: 'Site moderno para cafeteria, focado em design e responsividade.',
+      image: '/images/projetos/serenatto-cafe.png',
+      technologies: ['SCSS', 'HTML5', 'CSS3', 'CSS Grid', 'Flexbox'],
+      githubUrl: 'https://github.com/VitorMelo1/serenatto-cafe',
+      liveUrl: 'https://serenatto-cafe-cl2j.vercel.app/',
+      featured: true,
+      category: 'web',
+      year: 2023
+    },
   {
     id: 'portifolio',
     title: 'Portfólio',
-    description: 'Portfólio pessoal estático, apresentando seus principais projetos e habilidades. Estrutura semântica bem organizada, ideal para destacar seu trabalho e facilitar a navegação de recrutadores e visitantes.',
+    description: 'Meu primeiro portfólio pessoal estático, apresentando seus principais projetos e habilidades. Estrutura semântica bem organizada, ideal para destacar seu trabalho e facilitar a navegação de recrutadores e visitantes.',
     shortDescription: 'Portfólio pessoal estático e organizado.',
     image: '/images/projetos/portifolio.png',
     technologies: ['HTML5', 'CSS3'],
     githubUrl: 'https://github.com/VitorMelo1/portifolio',
-    liveUrl: 'https://vitormelo1.github.io/portifolio/',
+    liveUrl: 'https://portifolio-five-red-56.vercel.app/',
     featured: true,
     category: 'web',
     year: 2023
@@ -163,7 +150,7 @@ export const projects: Project[] = [
     image: '/images/projetos/use-dev.png',
     technologies: ['HTML5', 'CSS3'],
     githubUrl: 'https://github.com/VitorMelo1/use-dev',
-    liveUrl: 'https://vitormelo1.github.io/use-dev/',
+    liveUrl: 'https://vitormelo1.github.io/Use-Dev/',
     featured: true,
     category: 'web',
     year: 2023
@@ -176,13 +163,13 @@ export const projects: Project[] = [
     image: '/images/projetos/reserva-sala.png',
     technologies: ['TypeScript', 'HTML5', 'CSS3'],
     githubUrl: 'https://github.com/VitorMelo1/reserva-sala',
-    liveUrl: 'https://vitormelo1.github.io/reserva-sala/',
+    liveUrl: 'https://reserva-sala-chi.vercel.app',
     featured: true,
     category: 'web',
     year: 2023
   },
   // {
-  //   id: 'vmello-website',
+    //   id: 'vmello-website',
   //   title: 'Vmello Website',
   //   description: 'Site pessoal moderno, desenvolvido com Astro e deploy automatizado via GitHub Actions e Vercel. Design responsivo, geração estática de páginas e uso de Tailwind CSS para estilização rápida e eficiente. Exemplo de integração de CI/CD e melhores práticas de desenvolvimento web moderno.',
   //   shortDescription: 'Site pessoal moderno com Astro e Tailwind.',
@@ -194,6 +181,19 @@ export const projects: Project[] = [
   //   category: 'web',
   //   year: 2023
   // },
+  {
+    id: 'pulsetap',
+    title: 'PulseTap',
+    description: 'Aplicação web inovadora para monitoramento de batimentos cardíacos em tempo real, com interface intuitiva e design futurista. Integra com dispositivos wearables e oferece análises detalhadas de saúde cardiovascular.',
+    shortDescription: 'Monitoramento cardíaco em tempo real com IA',
+    image: '/images/projetos/pulsetap.png',
+    technologies: ['html5', 'CSS3', 'JavaScript','chart.js'],
+    githubUrl: 'https://github.com/VitorMelo1/pulsetap',
+    liveUrl: 'https://pulsetap.vercel.app',
+    featured: true,
+    category: 'web',
+    year: 2024
+  },
 ];
 
 export const featuredProjects = projects.filter(project => project.featured);
