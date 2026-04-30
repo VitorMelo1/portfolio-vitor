@@ -150,7 +150,7 @@ export const About: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className={styles.statsGrid}>
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 className={styles.statCard}
@@ -222,7 +222,7 @@ export const About: React.FC = () => {
             </p>
             
             <div className={styles.timelineList}>
-              {timeline.map((item, index) => (
+              {timeline.map((item) => (
                 <motion.div
                   key={item.year}
                   className={styles.timelineItem}

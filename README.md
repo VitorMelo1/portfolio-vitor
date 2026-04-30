@@ -153,13 +153,28 @@ Configuração estrita com path mapping para imports limpos.
 - **Images**: Lazy loading automático
 - **Fonts**: Carregamento otimizado
 
-## 🤝 Contribuição
+## 🤝 Fluxo Profissional (Git)
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+### Branches
+- `main`: branch estável e protegida
+- `feat/*`: novas funcionalidades
+- `fix/*`: correções de bugs
+- `chore/*`: manutenção e melhoria interna
+
+### Commits
+Use Conventional Commits para manter histórico limpo:
+- `feat:`
+- `fix:`
+- `refactor:`
+- `docs:`
+- `chore:`
+
+### Pull Requests
+1. Crie uma branch nova a partir da `main`
+2. Faça commits pequenos e descritivos
+3. Abra PR usando o template do repositório
+4. Aguarde CI verde (`lint` + `build`)
+5. Faça merge apenas via PR
 
 ## 📄 Licença
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence, easeOut, useCycle } from 'framer-motion';
+import { motion, AnimatePresence, easeOut } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 import styles from './Header.module.scss';
 
